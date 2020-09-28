@@ -57,6 +57,8 @@ subprojects {
       published
     }
     dependencies {
+      implement group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.0'
+
       testImplementation 'junit:junit:4.7'
     }
     task sourceJar(type: Jar) {
