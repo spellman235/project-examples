@@ -18,12 +18,7 @@ buildscript {
   repositories {
 
     jcenter()
-       	maven() {
-        url "http://172.16.2.214:8081/artifactory/jcenter" // The Artifactory (preferably virtual) repository to resolve from
-        credentials {
-            username "${artifactory_user}"
-            password "${artifactory_password}"
-        }
+
     dependencies {
       classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '4.15.2')
     }
@@ -40,7 +35,12 @@ allprojects {
   version = currentVersion
   status = 'Integration'
   repositories {
- 
+        	maven() {
+        url "http://172.16.2.214:8081/artifactory/jcenter" // The Artifactory (preferably virtual) repository to resolve from
+        credentials {
+            username "${artifactory_user}"
+            password "${artifactory_password}"
+        }
     }
     
   }
