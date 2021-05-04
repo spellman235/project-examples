@@ -27,5 +27,5 @@ steps:
     command: 'restore'
     artifactoryService: 'nuget test'
     targetResolveRepo: 'nuget'
-    arguments: '-Verbosity Detailed'
+    arguments: '-Verbosity detailed'
     rootPath: '**/*.sln'
