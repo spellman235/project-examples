@@ -22,10 +22,6 @@ steps:
   inputs:
     script: 'del /q "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\*"'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'nuget list source'
-
 
 
 - task: ArtifactoryDotnetCore@1
