@@ -1,6 +1,7 @@
 # .NET Desktop
 
 
+
 # Build and run tests for .NET Desktop or Windows classic desktop solutions.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
@@ -17,10 +18,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: PowerShell@2
+- task: CmdLine@2
   inputs:
-    targetType: 'inline'
-    script: 'Remove-Item -Path "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\*"'
+    script: 'del /q "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\*"'
 - task: JfrogCli@1
   inputs:
     artifactoryService: 'nuget test'
