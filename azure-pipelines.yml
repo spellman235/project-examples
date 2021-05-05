@@ -21,16 +21,17 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'del /q "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\*"'
-- task: JfrogCli@1
-  inputs:
-    artifactoryService: 'nuget test'
-    command: 'jfrog rt help'
 
+- task: ArtifactoryDotnetCore@1
+  inputs:
+    command: 'nuget add source https://supporteuw.jfrog.io/artifactory/api/nuget/v3/nuget'
+    arguments: '--name Arty'
+    rootPath: '**/*.sln'
 
 - task: ArtifactoryDotnetCore@1
   inputs:
     command: 'restore'
     artifactoryService: 'nuget test'
     targetResolveRepo: 'nuget'
-    arguments: '--verbosity detailed'
+    arguments: '--verbosity detailed --source Arty'
     rootPath: '**/*.sln'
