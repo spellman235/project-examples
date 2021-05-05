@@ -24,6 +24,12 @@ steps:
 
 - task: ArtifactoryDotnetCore@1
   inputs:
+    command: 'nuget locals'
+    arguments: '--clearall'
+
+
+- task: ArtifactoryDotnetCore@1
+  inputs:
     command: 'restore'
     artifactoryService: 'nuget test'
     targetResolveRepo: 'nuget'
