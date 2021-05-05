@@ -29,5 +29,5 @@ steps:
     command: 'restore'
     artifactoryService: 'nuget test'
     targetResolveRepo: 'nuget'
-    arguments: '--source .'
+    arguments: '--verbosity detailed -s https://loreny4.jfrog.io/artifactory/api/nuget/nuget -f .'
     rootPath: '**/*.sln'
