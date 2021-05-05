@@ -18,11 +18,16 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+
 - task: CmdLine@2
   inputs:
     script: 'rd /s /q "C:\Program Files\dotnet\sdk\NuGetFallbackFolder"'
 
-
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk 3.1.108'
+  inputs:
+    packageType: 'sdk'
+    version: '3.1.108'
 
 - task: ArtifactoryDotnetCore@1
   inputs:
@@ -31,3 +36,5 @@ steps:
     targetResolveRepo: 'nuget'
     arguments: '--verbosity detailed -s https://loreny4.jfrog.io/artifactory/api/nuget/nuget -f .'
     rootPath: '**/*.sln'
+    noNuGetCache: true
+    packagesDirectory: 'packages'
