@@ -20,7 +20,11 @@ variables:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'del /f "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\*"'
+    script: 'rd /s /q "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\*"'
+
+- task: CmdLine@2
+  inputs:
+    script: 'dir "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\"'
 
 
 
