@@ -22,11 +22,12 @@ steps:
     artifactoryService: 'nuget test'
     command: 'jfrog rt help'
 
-- task: ArtifactoryDotnetCore@1
-  inputs:
-    command: 'nuget locals'
-    arguments: '--clearall'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    custom: 'nuget locals'
+    arguments: '--clearall'
 
 - task: ArtifactoryDotnetCore@1
   inputs:
