@@ -26,8 +26,8 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'custom'
-    custom: 'nuget locals'
-    arguments: '--clearall'
+    custom: 'nuget locals all'
+    arguments: '-clear'
 
 - task: ArtifactoryDotnetCore@1
   inputs:
