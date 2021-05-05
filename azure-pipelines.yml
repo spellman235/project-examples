@@ -25,6 +25,11 @@ steps:
 
 - task: ArtifactoryDotnetCore@1
   inputs:
+    command: 'nuget list source'
+
+
+- task: ArtifactoryDotnetCore@1
+  inputs:
     command: 'restore'
     artifactoryService: 'nuget test'
     targetResolveRepo: 'nuget'
