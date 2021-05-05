@@ -20,7 +20,7 @@ steps:
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
-    script: 'Remove-Item -path C:\Program Files\dotnet\sdk\NuGetFallbackFolder\ -recurse'
+    script: 'Remove-Item -Path C:\Program Files\dotnet\sdk\NuGetFallbackFolder\*'
 - task: JfrogCli@1
   inputs:
     artifactoryService: 'nuget test'
