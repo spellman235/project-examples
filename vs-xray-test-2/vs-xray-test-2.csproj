@@ -1,10 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
-    <RootNamespace>vs_xray_test_2</RootNamespace>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Private.ServiceModel" Version="4.5.3" />
-  </ItemGroup>
+    <PropertyGroup>
+    <ProjectGuid>FEEAF28B-A3CD-4E70-BEAC-9B0FC546323A</ProjectGuid>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Product>MorganStanley.MSOnline.CachingLibrary</Product>
+      <Version>1.0.0.90</Version>
+      <Description>MSO SAL Caching Library Project (.Net Core)</Description>
+      <Company>Morgan Stanley</Company>
+      <Copyright>Copyright © Morgan Stanley 2019</Copyright>
+    <IsPackable>true</IsPackable>
+    <Authors>Morgan Stanley</Authors>
+    <PackageId>MorganStanley.MSOnline.CachingLibrary</PackageId>
+    <AssemblyName>MorganStanley.MSOnline.CachingLibrary</AssemblyName>
+    <RootNamespace>MorganStanley.MSOnline.CachingLibrary</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Models\NotificationModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+    <PackageReference Include="MorganStanley.Castle" Version="5.1.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="StackExchange.Redis" Version="2.1.30" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="5.5.0" />
+  </ItemGroup>
+  <Target Name="SetPackageOutputAbsolutePath" BeforeTargets="GenerateNuspec">
+    <PropertyGroup>
+      <PackageOutputAbsolutePath>$(OutputPath)..\..\nuget</PackageOutputAbsolutePath>
+    </PropertyGroup>
+    <Message Importance="high" Text="PackageOutputAbsolutePath: $(PackageOutputAbsolutePath)" />
+  </Target>
 </Project>
