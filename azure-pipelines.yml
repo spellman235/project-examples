@@ -27,12 +27,6 @@ steps:
     command: 'jfrog rt help'
 
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'custom'
-    custom: 'nuget locals'
-    arguments: ''
-
 - task: ArtifactoryDotnetCore@1
   inputs:
     command: 'restore'
