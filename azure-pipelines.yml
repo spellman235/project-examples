@@ -22,16 +22,11 @@ steps:
   inputs:
     script: 'del /q "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\*"'
 
-- task: ArtifactoryDotnetCore@1
-  inputs:
-    command: 'nuget add source https://supporteuw.jfrog.io/artifactory/api/nuget/v3/nuget'
-    arguments: '--name Arty'
-    rootPath: '**/*.sln'
 
 - task: ArtifactoryDotnetCore@1
   inputs:
     command: 'restore'
     artifactoryService: 'nuget test'
     targetResolveRepo: 'nuget'
-    arguments: '--verbosity detailed --source https://admine2dj:VeRG0o0wIH@loreny4.jfrog.io/artifactory/api/nuget/v3/nuget'
+    arguments: '--verbosity detailed --source https://loreny4.jfrog.io/artifactory/api/nuget/v3/nuget'
     rootPath: '**/*.sln'
