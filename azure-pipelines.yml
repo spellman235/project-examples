@@ -22,10 +22,6 @@ steps:
   inputs:
     script: 'rd /s /q "C:\Program Files\dotnet\sdk\NuGetFallbackFolder"'
 
-- task: CmdLine@2
-  inputs:
-    script: 'dir "C:\Program Files\dotnet\sdk\NuGetFallbackFolder\"'
-
 
 
 - task: ArtifactoryDotnetCore@1
